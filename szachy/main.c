@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include "szachy.h"
 
-
 int main()
 {
     int plansza[8][8]={
@@ -30,20 +29,12 @@ int main()
         printf("\n~~~~~~~~~~~~~~~~~~~~~~~~");
         show(plansza);
 
-        if(true)
-        {
         printf("ruch BIALYCH\n");
         do
         {
             fflush(stdin);
             scanf("%d%d%d%d",&xF,&yF,&xT,&yT);
         } while (!move(plansza,BIALE,xF,yF,xT,yT,&zbita));
-        }
-        else
-        {
-        MiniMax(plansza,5,Alpha,Beta,false,&BFR,&BFC,&BTR,&BTC);
-        move(plansza,BIALE,BFC,BFR,BTC,BTR,&zbita);
-        }
         
         system("CLS");
         printf("\n~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -52,7 +43,6 @@ int main()
         printf("ruch CZARNYCH\n");
         MiniMax(plansza,5,Alpha,Beta,true,&BFR,&BFC,&BTR,&BTC);
         move(plansza,CZARNE,BFC,BFR,BTC,BTR,&zbita);
-        //show(plansza);
     }
 
     printf("\nEND\n");
